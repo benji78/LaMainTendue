@@ -37,11 +37,13 @@ const styles = StyleSheet.create({
     height: 200,
   },
   price: {
-    color: colors.secondary,
-    fontWeight: "bold",
+    color: colors.darkgray,
   },
   title: {
     marginBottom: 10,
+    fontSize: 24,
+    color: colors.green,
+    fontWeight: "bold",
   },
 });
 

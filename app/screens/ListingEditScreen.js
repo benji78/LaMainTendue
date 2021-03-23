@@ -10,7 +10,7 @@ import Screen from "../components/Screen";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
-  price: Yup.number().integer().required().min(0).max(1000).label("Price"),
+  price: Yup.number().integer().required().min(0).max(100).label("Price"),
   description: Yup.string().label("Description"),
   category: Yup.object().required().nullable().label("Category"),
   images: Yup.array().min(1, "Please select at least one image."),
@@ -92,7 +92,7 @@ function ListingEditScreen() {
           <FormField maxLength={128} name="title" placeholder="Title" />
           <FormField
             keyboardType="numeric"
-            maxLength={4} // maxLength: $ "1000"
+            maxLength={3} // maxLength: "100" sols
             name="price"
             placeholder="Price"
             width="50%"

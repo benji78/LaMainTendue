@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, StyleSheet, View } from "react-native";
+import { FlatList, ScrollView, StyleSheet, View } from "react-native";
 
 import colors from "../config/colors";
 import Icon from "../components/Icon";
@@ -9,47 +9,67 @@ import routes from "../navigation/routes";
 
 const menuItems = [
   {
-    title: "My Listings",
-    icon: { name: "format-list-bulleted", backgroundColor: colors.primary },
+    // circle-slice-4 for dark mode
+    title: "Bookings",
+    icon: { name: "format-list-checks", backgroundColor: colors.logoNavyBlue },
     targetScreen: "Account",
   },
   {
-    title: "My Messages",
-    icon: { name: "email", backgroundColor: colors.secondary },
+    title: "My listings",
+    icon: { name: "format-list-bulleted", backgroundColor: colors.logoLightBlue },
+    targetScreen: "My listings",
+  },
+  {
+    title: "My messages",
+    icon: { name: "email", backgroundColor: colors.logoGreen },
     targetScreen: routes.MESSAGES,
+  },
+  {
+    title: "Entr'aide",
+    icon: { name: "hand-heart", backgroundColor: colors.logoLime },
+    targetScreen: "Account",
+  },
+  {
+    title: "Help center",
+    icon: { name: "lifebuoy", backgroundColor: colors.orange },
+    targetScreen: "Account",
   },
 ];
 
 function AccountScreen({ navigation }) {
   return (
     <Screen style={styles.screen}>
-      <View style={styles.container}>
-        <ListItem
-          title="Benjamin Bordes"
-          description="bbordes@juniorisep.com"
-          image={require("../assets/BenjaminBordes.bmp")}
-        />
-      </View>
-      <View style={styles.container}>
-        <FlatList
-          data={menuItems}
-          keyExtractor={(menuItems) => menuItems.title}
-          ItemSeparatorComponent={ListItemSeparator}
-          renderItem={({ item }) => (
+      <FlatList
+        ListHeaderComponent={
+          <View style={styles.container}>
             <ListItem
-              title={item.title}
-              IconComponent={
-                <Icon name={item.icon.name} backgroundColor={item.icon.backgroundColor} />
-              }
-              onPress={() => navigation.navigate(item.targetScreen)}
+              title="Benjamin Bordes"
+              description="bbordes@juniorisep.com"
+              image={require("../assets/BenjaminBordes.bmp")}
             />
-          )}
-        />
-      </View>
-      <ListItem
-        title="Log out"
-        IconComponent={<Icon name="logout" backgroundColor="#ffe66d" />}
-        onPress={() => console.log("logout")}
+          </View>
+        }
+        data={menuItems}
+        keyExtractor={(menuItems) => menuItems.title}
+        ItemSeparatorComponent={ListItemSeparator}
+        renderItem={({ item }) => (
+          <ListItem
+            title={item.title}
+            IconComponent={
+              <Icon name={item.icon.name} backgroundColor={item.icon.backgroundColor} />
+            }
+            onPress={() => navigation.navigate(item.targetScreen)}
+          />
+        )}
+        ListFooterComponent={
+          <View style={styles.container}>
+            <ListItem
+              title="Log out"
+              IconComponent={<Icon name="logout-variant" backgroundColor={colors.logoRed} />}
+              onPress={() => console.log("logout")}
+            />
+          </View>
+        }
       />
     </Screen>
   );

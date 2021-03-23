@@ -7,7 +7,7 @@ import { Form, FormField, SubmitButton } from "../components/forms";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
-  password: Yup.string().required().min(8).max(128).label("Password"),
+  password: Yup.string().required().min(8).label("Password"),
 });
 
 function LoginScreen(props) {
@@ -32,6 +32,7 @@ function LoginScreen(props) {
           autoCapitalize="none"
           autoCorrect={false}
           icon="lock"
+          maxLength={128}
           name="password"
           placeholder="Password"
           secureTextEntry
@@ -48,10 +49,10 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   logo: {
-    width: 150,
-    height: 150,
+    width: 200,
+    height: 200,
     alignSelf: "center",
-    marginTop: 50,
+    marginTop: 40,
     marginBottom: 20,
   },
 });

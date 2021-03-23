@@ -12,15 +12,12 @@ function WelcomeScreen({ navigation }) {
     >
       <View style={styles.logoContainer}>
         <Image style={styles.logo} source={require("../assets/logo-transparent.png")} />
-        <Text style={styles.tagline}>La main tendue</Text>
+        <Image style={styles.sousLogo} source={require("../assets/souslogo.png")} />
+        {/* <Text style={styles.tagline}>La main tendue</Text> */}
       </View>
       <View style={styles.buttonsContainer}>
-        <Button title="Login" onPress={() => navigation.navigate(routes.LOGIN)} />
-        <Button
-          title="Register"
-          color="secondary"
-          onPress={() => navigation.navigate(routes.REGISTER)}
-        />
+        <Button title="Login" color="green" onPress={() => navigation.navigate(routes.LOGIN)} />
+        <Button title="Register" onPress={() => navigation.navigate(routes.REGISTER)} />
       </View>
     </ImageBackground>
   );
@@ -28,22 +25,31 @@ function WelcomeScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   background: {
+    alignItems: "center",
     flex: 1,
     justifyContent: "flex-end",
-    alignItems: "center",
   },
   buttonsContainer: {
     padding: 20,
     width: "100%",
   },
   logo: {
-    width: 250,
-    height: 250,
+    height: 230,
+    maxWidth: "60%",
+    resizeMode: "contain",
+  },
+  sousLogo: {
+    marginTop: 25,
+    height: 150,
+    maxWidth: "95%",
+    resizeMode: "contain",
   },
   logoContainer: {
-    position: "absolute",
-    top: 70,
     alignItems: "center",
+    flex: 1,
+    top: 50,
+    width: "100%",
+    marginBottom: 30,
   },
   tagline: {
     fontSize: 25,

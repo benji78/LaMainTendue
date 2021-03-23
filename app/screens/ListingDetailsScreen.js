@@ -18,7 +18,7 @@ function ListingDetailsScreen({ navigation, route }) {
         </TouchableWithoutFeedback>
         <View style={styles.detailsContainer}>
           <Text style={styles.title}>{listing.title}</Text>
-          <Text style={styles.price}>${listing.price}</Text>
+          <Text style={styles.price}>{listing.price === 0 ? "Free" : listing.price + " sols"}</Text>
           {listing.description && <Text style={styles.description}>{listing.description}</Text>}
           <View style={styles.userContainer}>
             <ListItem
@@ -37,21 +37,22 @@ const styles = StyleSheet.create({
   detailsContainer: {
     padding: 20,
   },
+  description: {
+    fontSize: 20,
+    marginVertical: 20,
+  },
   image: {
     width: "100%",
     height: 300,
   },
   price: {
-    color: colors.secondary,
-    fontWeight: "bold",
+    color: colors.darkGray,
   },
   title: {
+    marginBottom: 10,
     fontSize: 24,
-    fontWeight: "500",
-  },
-  description: {
-    fontSize: 20,
-    marginVertical: 20,
+    color: colors.green,
+    fontWeight: "bold",
   },
   userContainer: {
     marginVertical: 20,

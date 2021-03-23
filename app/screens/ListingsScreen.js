@@ -24,7 +24,7 @@ const listings = [
   {
     id: 3,
     title: "Plat de spaghetti",
-    price: 200,
+    price: 0,
     image: require("../assets/spaghetti.bmp"),
   },
 ];
@@ -39,7 +39,7 @@ function ListingsScreen({ navigation }) {
           <Card
             image={item.image}
             title={item.title}
-            price={"$" + item.price}
+            price={item.price === 0 ? "Free" : item.price + " sols"}
             style={styles.card}
             onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
           />

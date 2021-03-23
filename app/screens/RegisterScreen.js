@@ -11,11 +11,10 @@ const validationSchema = Yup.object().shape({
   password: Yup.string()
     .required()
     .min(8)
-    .max(128)
     .label("Password")
     .matches(
       /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+      "Must Contain at least one UPPERCASE, one lowercase, 1 number and one speci@l character."
     ),
 });
 
@@ -38,6 +37,7 @@ function RegisterScreen() {
           textContentType="emailAddress"
         />
         <FormField
+          maxLength={512}
           autoCapitalize="none"
           autoCorrect={false}
           icon="lock"
