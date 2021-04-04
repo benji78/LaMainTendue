@@ -10,10 +10,10 @@ import Screen from "../components/Screen";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
-  price: Yup.number().integer().required().min(0).max(100).label("Price"),
+  price: Yup.number().integer().required().min(0).max(99).label("Price"),
   description: Yup.string().label("Description"),
   category: Yup.object().required().nullable().label("Category"),
-  images: Yup.array().min(1, "Please select at least one image."),
+  images: Yup.array().min(1, "Select at least one photo."),
 });
 
 const categories = [
@@ -73,7 +73,7 @@ const categories = [
   },
 ];
 
-function ListingEditScreen() {
+function NewListingScreen() {
   return (
     <Screen>
       <ScrollView style={styles.container}>
@@ -92,7 +92,7 @@ function ListingEditScreen() {
           <FormField maxLength={128} name="title" placeholder="Title" />
           <FormField
             keyboardType="numeric"
-            maxLength={3} // maxLength: "100" sols
+            maxLength={2} // maxLength: "99" sols
             name="price"
             placeholder="Price"
             width="50%"
@@ -126,4 +126,4 @@ const styles = StyleSheet.create({
     padding: 15,
   },
 });
-export default ListingEditScreen;
+export default NewListingScreen;

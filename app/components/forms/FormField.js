@@ -10,6 +10,7 @@ function FormField({ name, width, ...otherProps }) {
   return (
     <>
       <TextInput
+        autoCorrect={false}
         onBlur={() => setFieldTouched(name)}
         onChangeText={handleChange(name)}
         width={width}

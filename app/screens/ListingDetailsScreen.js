@@ -14,7 +14,7 @@ function ListingDetailsScreen({ navigation, route }) {
     <Screen style={{ backgroundcolor: colors.lightGray }}>
       <ScrollView>
         <TouchableWithoutFeedback onPress={() => navigation.navigate(routes.VIEW_IMAGE, listing)}>
-          <Image style={styles.image} source={listing.image} />
+          <Image style={styles.image} source={{ uri: listing.image }} />
         </TouchableWithoutFeedback>
         <View style={styles.detailsContainer}>
           <Text style={styles.title}>{listing.title}</Text>
@@ -22,9 +22,9 @@ function ListingDetailsScreen({ navigation, route }) {
           {listing.description && <Text style={styles.description}>{listing.description}</Text>}
           <View style={styles.userContainer}>
             <ListItem
-              image={require("../assets/BenjaminBordes.bmp")}
-              title="Benjamin Bordes"
-              description="5 Listings"
+              image={{ uri: listing.user.image }}
+              title={listing.user.title}
+              description={listing.user.description}
             />
           </View>
         </View>

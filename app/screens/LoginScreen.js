@@ -21,7 +21,6 @@ function LoginScreen(props) {
       >
         <FormField
           autoCapitalize="none"
-          autoCorrect={false}
           icon="email"
           keyboardType="email-address"
           name="email"
@@ -30,7 +29,6 @@ function LoginScreen(props) {
         />
         <FormField
           autoCapitalize="none"
-          autoCorrect={false}
           icon="lock"
           maxLength={128}
           name="password"

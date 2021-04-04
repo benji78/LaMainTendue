@@ -36,11 +36,7 @@ function Picker({
           ) : (
             <Text style={styles.placeholder}>{placeholder}</Text>
           )}
-          <MaterialCommunityIcons
-            name="chevron-down"
-            size={20}
-            color={defaultStyles.colors.mediumGray}
-          />
+          <MaterialCommunityIcons name="chevron-down" size={20} color={defaultStyles.colors.mediumGray} />
         </View>
       </TouchableWithoutFeedback>
       <Modal visible={modalVisible} animationType="slide">

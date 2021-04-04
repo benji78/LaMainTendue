@@ -7,13 +7,17 @@ import { Form, FormField, SubmitButton } from "../components/forms";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().label("Name"),
+  number: Yup.string()
+    .required()
+    .label("Phone number")
+    .matches(/^0[1-9]\d{8}$/, "This isn't a french phone number."),
   email: Yup.string().required().email().label("Email"),
   password: Yup.string()
     .required()
     .min(8)
     .label("Password")
     .matches(
-      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*?_.-])(.){8,}$/,
       "Must Contain at least one UPPERCASE, one lowercase, 1 number and one speci@l character."
     ),
 });
@@ -22,14 +26,23 @@ function RegisterScreen() {
   return (
     <Screen style={styles.container}>
       <Form
-        initialValues={{ name: "", email: "", password: "" }}
+        initialValues={{ name: "", number: "", email: "", password: "" }}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        <FormField autoCorrect={false} icon="account" name="name" placeholder="Name" />
+        <FormField autoCompleteType="name" icon="account" name="name" placeholder="Name" />
         <FormField
+          autoCompleteType="tel"
+          icon="phone"
+          keyboardType="numeric"
+          maxLength={10}
+          name="number"
+          placeholder="Phone number"
+          textContentType="telephoneNumber"
+        />
+        <FormField
+          autoCompleteType="email"
           autoCapitalize="none"
-          autoCorrect={false}
           icon="email"
           keyboardType="email-address"
           name="email"
@@ -37,11 +50,11 @@ function RegisterScreen() {
           textContentType="emailAddress"
         />
         <FormField
-          maxLength={512}
+          autoCompleteType="password"
           autoCapitalize="none"
-          autoCorrect={false}
           icon="lock"
           name="password"
+          maxLength={512}
           placeholder="Password"
           secureTextEntry
           textContentType="password"

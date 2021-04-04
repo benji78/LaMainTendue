@@ -30,7 +30,7 @@ function ImageInput({ imageUri, onChangeImage }) {
     try {
       const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
-        quality: 1,
+        quality: 0.5,
       });
       if (!result.cancelled) onChangeImage(result.uri);
     } catch (error) {

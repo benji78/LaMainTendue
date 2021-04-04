@@ -27,7 +27,7 @@ function ViewImageScreen({ navigation, route, onDelete }) {
           </View>
         )}
       </View>
-      <Image resizeMode="contain" style={styles.image} source={listing.image} />
+      <Image resizeMode="contain" style={styles.image} source={{ uri: listing.image }} />
     </Screen>
   );
 }

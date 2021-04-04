@@ -1,9 +1,12 @@
 import React from "react";
 import { ImageBackground, StyleSheet, View, Image, Text, Platform } from "react-native";
+import useAuth from "../auth/useAuth";
 import Button from "../components/Button";
 import routes from "../navigation/routes";
 
 function WelcomeScreen({ navigation }) {
+  const { logIn } = useAuth();
+
   return (
     <ImageBackground
       blurRadius={Platform.OS === "android" ? 2 : 10}
@@ -18,6 +21,7 @@ function WelcomeScreen({ navigation }) {
       <View style={styles.buttonsContainer}>
         <Button title="Login" color="green" onPress={() => navigation.navigate(routes.LOGIN)} />
         <Button title="Register" onPress={() => navigation.navigate(routes.REGISTER)} />
+        <Button title="X" onPress={() => logIn()} />
       </View>
     </ImageBackground>
   );
