@@ -48,7 +48,7 @@ function AccountScreen({ navigation }) {
       <FlatList
         ListHeaderComponent={
           <View style={styles.container}>
-            <ListItem title={user.title} description={user.description} image={{ uri: user.image }} />
+            <ListItem title={user.name} description={user.email} image={{ uri: user.photo }} />
           </View>
         }
         data={menuItems}

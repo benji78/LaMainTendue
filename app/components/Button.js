@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     marginVertical: 15,
   },
   text: {
-    color: "#fff",
+    color: colors.white,
     fontSize: 18,
     textTransform: "uppercase",
   },

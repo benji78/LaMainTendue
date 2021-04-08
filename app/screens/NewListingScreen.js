@@ -2,18 +2,24 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import * as Yup from "yup";
-import CategoryPickerItem from "../components/CategoryPickerItem";
 
+import CategoryPickerItem from "../components/CategoryPickerItem";
 import { Form, FormField, FormPicker, SubmitButton } from "../components/forms";
 import FormImagePicker from "../components/forms/FormImagePicker";
 import Screen from "../components/Screen";
 
 const validationSchema = Yup.object().shape({
-  title: Yup.string().required().min(1).label("Title"),
-  price: Yup.number().integer().required().min(0).max(99).label("Price"),
-  description: Yup.string().label("Description"),
+  images: Yup.array().min(1, "Select at least one photo"),
+  title: Yup.string().required().label("Title"),
+  price: Yup.number()
+    .typeError("This is not a number")
+    .integer()
+    .required()
+    .min(0, "Negative prices are not accepted")
+    .max(99, "How did you pull this one out?")
+    .label("Price"),
   category: Yup.object().required().nullable().label("Category"),
-  images: Yup.array().min(1, "Select at least one photo."),
+  description: Yup.string().label("Description"),
 });
 
 const categories = [

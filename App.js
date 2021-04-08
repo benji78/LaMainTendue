@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 
-import NavigationTheme from "./app/navigation/NavigationTheme";
+import NavigationTheme from "./app/navigation/extra/NavigationTheme";
 import AppNavigator from "./app/navigation/AppNavigator";
 import AuthNavigator from "./app/navigation/AuthNavigator";
 import AuthContext from "./app/auth/context";
@@ -20,3 +20,4 @@ export default function App() {
     </AuthContext.Provider>
   );
 }
+// independent={true}

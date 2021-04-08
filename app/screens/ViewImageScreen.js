@@ -4,8 +4,8 @@ import { Image, StyleSheet, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import colors from "../config/colors";
-import Screen from "../components/Screen";
 import routes from "../navigation/routes";
+import Screen from "../components/Screen";
 
 function ViewImageScreen({ navigation, route, onDelete }) {
   const listing = route.params;

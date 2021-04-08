@@ -11,7 +11,11 @@ const validationSchema = Yup.object().shape({
     .required()
     .label("Phone number")
     .matches(/^0[1-9]\d{8}$/, "This isn't a french phone number."),
-  email: Yup.string().required().email().label("Email"),
+  email: Yup.string()
+    .required()
+    .email()
+    .label("Email")
+    .matches(/^[\.\d\w]{6,}@eleve\.isep\.fr$/, "This is not an ISEP email address"),
   password: Yup.string()
     .required()
     .min(8)

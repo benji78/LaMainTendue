@@ -1,5 +1,6 @@
 import React from "react";
 import { ImageBackground, StyleSheet, View, Image, Text, Platform } from "react-native";
+
 import useAuth from "../auth/useAuth";
 import Button from "../components/Button";
 import routes from "../navigation/routes";

@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
   },
   text: {
     padding: 15,
+    paddingTop: 15, // for some reason the description's multiline prop removes the paddingTop from padding on ios
   },
 });
 

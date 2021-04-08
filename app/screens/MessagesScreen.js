@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { FlatList } from "react-native";
 
+import data from "../../data.json";
 import { ListItem, ListItemDeleteAction, ListItemSeparator } from "../components/lists";
 import Screen from "../components/Screen";
-import data from "../../data.json";
 
 function MessagesScreen(props) {
   const [messages, setMessages] = useState(data.messages);

@@ -14,7 +14,7 @@ function Card({ image, title, price, onPress, style }) {
             {title}
           </Text>
           <Text style={styles.price} numberOfLines={2}>
-            {price}
+            {price === 0 ? "Free" : price + " sols"}
           </Text>
         </View>
       </View>

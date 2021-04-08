@@ -22,9 +22,9 @@ function ListingDetailsScreen({ navigation, route }) {
           {listing.description && <Text style={styles.description}>{listing.description}</Text>}
           <View style={styles.userContainer}>
             <ListItem
-              image={{ uri: listing.user.image }}
-              title={listing.user.title}
-              description={listing.user.description}
+              image={{ uri: listing.user.photo }}
+              title={listing.user.name}
+              description={listing.user.email}
             />
           </View>
         </View>
