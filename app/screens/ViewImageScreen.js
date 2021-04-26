@@ -4,7 +4,6 @@ import { Image, StyleSheet, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import colors from "../config/colors";
-import routes from "../navigation/routes";
 import Screen from "../components/Screen";
 
 function ViewImageScreen({ navigation, route, onDelete }) {
@@ -18,7 +17,7 @@ function ViewImageScreen({ navigation, route, onDelete }) {
             name="close"
             color="white"
             size={35}
-            onPress={() => navigation.navigate(routes.LISTING_DETAILS)}
+            onPress={() => navigation.goBack(null)}
           />
         </View>
         {onDelete && (
@@ -39,8 +38,7 @@ const styles = StyleSheet.create({
     left: 15,
   },
   container: {
-    backgroundColor: colors.black,
-    flex: 1,
+    backgroundColor: colors.white,
   },
   deleteIcon: {
     position: "absolute",

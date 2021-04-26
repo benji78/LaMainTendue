@@ -6,7 +6,15 @@ import Swipeable from "react-native-gesture-handler/Swipeable";
 import colors from "../../config/colors";
 import Text from "../Text";
 
-function ListItem({ title, description, image, IconComponent, onPress, renderRightActions }) {
+function ListItem({
+  title,
+  description,
+  hideChevron = false,
+  image,
+  IconComponent,
+  onPress,
+  renderRightActions,
+}) {
   return (
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight underlayColor={colors.lightGray} onPress={onPress}>
@@ -25,7 +33,9 @@ function ListItem({ title, description, image, IconComponent, onPress, renderRig
               </Text>
             )}
           </View>
-          <MaterialCommunityIcons color={colors.mediumGray} name="chevron-right" size={25} />
+          {!hideChevron && (
+            <MaterialCommunityIcons color={colors.mediumGray} name="chevron-right" size={25} />
+          )}
         </View>
       </TouchableHighlight>
     </Swipeable>

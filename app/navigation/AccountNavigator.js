@@ -8,7 +8,6 @@ import BookingsScreen from "../screens/BookingsScreen";
 import MessagesScreen from "../screens/MessagesScreen";
 
 const Stack = createStackNavigator();
-const filter = false;
 const AccountNavigator = () => (
   <Stack.Navigator>
     <Stack.Screen component={AccountScreen} name="Account" options={{ headerShown: false }} />

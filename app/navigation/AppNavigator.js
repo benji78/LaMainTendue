@@ -7,28 +7,26 @@ import FeedNavigator from "./FeedNavigator";
 import NewListingButton from "./extra/NewListingButton";
 import NewListingScreen from "../screens/NewListingScreen";
 import routes from "./routes";
+import colors from "../config/colors";
 
 const Tab = createBottomTabNavigator();
-const filter = true;
 const AppNavigator = () => (
-  <Tab.Navigator>
+  <Tab.Navigator
+    tabBarOptions={{ activeBackgroundColor: colors.white, inactiveBackgroundColor: colors.white }}
+  >
     <Tab.Screen
       name="Feed"
-      // initialParams={{ depuis: "AppNav" }}
       component={FeedNavigator}
+      initialParams={{ filter: true }}
       options={{
         tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="home" color={color} size={size} />,
       }}
-      initialParams={{ filter: true }}
     />
     <Tab.Screen
-      name={routes.LISTING_EDIT}
+      name={"NewListing"}
       component={NewListingScreen}
       options={({ navigation }) => ({
-        tabBarButton: () => <NewListingButton onPress={() => navigation.navigate(routes.LISTING_EDIT)} />,
-        tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons name="plus-circle" color={color} size={size} />
-        ),
+        tabBarButton: () => <NewListingButton onPress={() => navigation.navigate(routes.NEW_LISTING)} />,
       })}
     />
     <Tab.Screen

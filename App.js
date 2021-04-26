@@ -6,7 +6,6 @@ import AppNavigator from "./app/navigation/AppNavigator";
 import AuthNavigator from "./app/navigation/AuthNavigator";
 import AuthContext from "./app/auth/context";
 
-// isep emails only
 // custom messages on Yup verifications
 
 export default function App() {

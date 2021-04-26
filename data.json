@@ -10,7 +10,7 @@
     {
       "id": 1,
       "title": "Cours de cuisine",
-      "price": 100,
+      "price": 10,
       "image": "https://media.relaischateaux.com/public/hash/d3af2ef1b23d5bfaed120d5a33934fab558c34c7",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id est enim, de quo quaerimus.\nHoc non est positum in nostra actione. Quia dolori non voluptas contraria est, sed doloris privatio. Eam tum adesse, cum dolor omnis absit; Itaque nostrum est-quod nostrum dico, artis est-ad ea principia, quae accepimus.\nDuo Reges: constructio interrete.\n In quo etsi est magnus, tamen nova pleraque et perpauca de moribus. An potest cupiditas finiri? Ex eorum enim scriptis et institutis cum omnis doctrina liberalis, omnis historia. Nam si amitti vita beata potest, beata esse non potest.",
       "user": {
@@ -22,7 +22,7 @@
     {
       "id": 2,
       "title": "Lasagnes pour une personne",
-      "price": 550,
+      "price": 5,
       "image": "https://www.eismann.fr/content/images/thumbs/0005265_lasagnes-bolognaises.jpeg",
       "user": {
         "name": "Farah Abdelkhalek",
@@ -44,7 +44,7 @@
     {
       "id": 4,
       "title": "Plat de spaghetti",
-      "price": 0,
+      "price": 1,
       "image": "https://images.eatsmarter.com/sites/default/files/styles/facebook/public/spaghetti-bolognese-original-582182.jpg",
       "user": {
         "name": "Benjamin Bordes",

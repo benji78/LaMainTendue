@@ -3,8 +3,12 @@ import { Alert, Image, StyleSheet, TouchableWithoutFeedback, View } from "react-
 import colors from "../config/colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
+import { useNavigation } from "@react-navigation/core";
+import ViewImageScreen from "../screens/ViewImageScreen";
 
 function ImageInput({ imageUri, onChangeImage }) {
+  const navigation = useNavigation();
+
   useEffect(() => {
     requestPermission();
   }, []); // call this function and move on
@@ -24,6 +28,7 @@ function ImageInput({ imageUri, onChangeImage }) {
         { text: "Yes", onPress: () => onChangeImage(null) },
         { text: "No" },
       ]);
+    // navigation.navigate(ViewImageScreen);
   };
 
   const selectImage = async () => {

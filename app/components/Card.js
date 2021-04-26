@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     height: 200,
   },
   price: {
-    color: colors.darkgray,
+    color: colors.darkGray,
   },
   title: {
     marginBottom: 10,

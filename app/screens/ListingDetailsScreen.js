@@ -1,18 +1,17 @@
 import React from "react";
-import { Image, StyleSheet, TouchableWithoutFeedback, View } from "react-native";
+import { Image, ScrollView, StyleSheet, TouchableWithoutFeedback, View } from "react-native";
 
 import Text from "../components/Text";
 import ListItem from "../components/lists/ListItem";
 import colors from "../config/colors";
 import Screen from "../components/Screen";
 import routes from "../navigation/routes";
-import { ScrollView } from "react-native-gesture-handler";
 
 function ListingDetailsScreen({ navigation, route }) {
   const listing = route.params;
   return (
-    <Screen style={{ backgroundcolor: colors.lightGray }}>
-      <ScrollView>
+    <Screen>
+      <ScrollView style={{ backgroundColor: colors.lightGray }}>
         <TouchableWithoutFeedback onPress={() => navigation.navigate(routes.VIEW_IMAGE, listing)}>
           <Image style={styles.image} source={{ uri: listing.image }} />
         </TouchableWithoutFeedback>
@@ -25,6 +24,7 @@ function ListingDetailsScreen({ navigation, route }) {
               image={{ uri: listing.user.photo }}
               title={listing.user.name}
               description={listing.user.email}
+              hideChevron={true}
             />
           </View>
         </View>

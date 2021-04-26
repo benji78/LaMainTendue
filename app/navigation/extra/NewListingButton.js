@@ -7,8 +7,10 @@ import colors from "../../config/colors";
 function NewListingButton({ onPress }) {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
-      <View style={styles.container}>
-        <MaterialCommunityIcons name="plus" size={40} color={colors.white} />
+      <View style={{ backgroundColor: colors.white }}>
+        <View style={styles.container}>
+          <MaterialCommunityIcons name="plus" size={40} color={colors.white} />
+        </View>
       </View>
     </TouchableWithoutFeedback>
   );
