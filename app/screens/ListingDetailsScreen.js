@@ -10,8 +10,8 @@ import routes from "../navigation/routes";
 function ListingDetailsScreen({ navigation, route }) {
   const listing = route.params;
   return (
-    <Screen>
-      <ScrollView style={{ backgroundColor: colors.lightGray }}>
+    <Screen style={styles.container}>
+      <ScrollView style={styles.container}>
         <TouchableWithoutFeedback onPress={() => navigation.navigate(routes.VIEW_IMAGE, listing)}>
           <Image style={styles.image} source={{ uri: listing.image }} />
         </TouchableWithoutFeedback>
@@ -25,6 +25,7 @@ function ListingDetailsScreen({ navigation, route }) {
               title={listing.user.name}
               description={listing.user.email}
               hideChevron={true}
+              style={{ borderRadius: 30 }}
             />
           </View>
         </View>
@@ -34,6 +35,9 @@ function ListingDetailsScreen({ navigation, route }) {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: colors.lightGray,
+  },
   detailsContainer: {
     padding: 20,
   },

@@ -4,6 +4,7 @@ import * as Yup from "yup";
 
 import Screen from "../components/Screen";
 import { Form, FormField, SubmitButton } from "../components/forms";
+import colors from "../config/colors";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().label("Name"),
@@ -72,6 +73,7 @@ function RegisterScreen() {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
+    backgroundColor: colors.lightGray,
   },
 });
 

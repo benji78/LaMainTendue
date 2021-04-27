@@ -6,7 +6,7 @@ import AppNavigator from "./app/navigation/AppNavigator";
 import AuthNavigator from "./app/navigation/AuthNavigator";
 import AuthContext from "./app/auth/context";
 
-// custom messages on Yup verifications
+// temporarily the dark mode can be activated by changing the color pallet in app/config/colors.js and the statusBar style to light in app/components/Screen.js
 
 export default function App() {
   const [user, setUser] = useState();

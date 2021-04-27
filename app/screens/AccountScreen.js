@@ -21,7 +21,7 @@ const menuItems = [
     targetScreen: "My listings",
   },
   {
-    title: "My messages",
+    title: "Messages",
     icon: { name: "email", backgroundColor: colors.logoGreen },
     targetScreen: routes.MESSAGES,
   },

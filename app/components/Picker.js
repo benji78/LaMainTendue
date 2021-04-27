@@ -40,7 +40,7 @@ function Picker({
         </View>
       </TouchableWithoutFeedback>
       <Modal visible={modalVisible} animationType="slide">
-        <Screen>
+        <Screen style={styles.screen}>
           <Button title="Close" onPress={() => setModalVisible(false)} />
           <FlatList
             data={items}
@@ -65,7 +65,7 @@ function Picker({
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: defaultStyles.colors.lightGray,
+    backgroundColor: defaultStyles.colors.white,
     borderRadius: 25,
     flexDirection: "row",
     padding: 15,
@@ -73,6 +73,9 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginRight: 10,
+  },
+  screen: {
+    backgroundColor: defaultStyles.colors.lightGray,
   },
   text: {
     flex: 1,

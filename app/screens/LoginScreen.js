@@ -4,6 +4,7 @@ import * as Yup from "yup";
 
 import { Form, FormField, SubmitButton } from "../components/forms";
 import Screen from "../components/Screen";
+import colors from "../config/colors";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email("This is not a valid email").label("Email"),
@@ -45,6 +46,7 @@ function LoginScreen(props) {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
+    backgroundColor: colors.lightGray,
   },
   logo: {
     width: 200,

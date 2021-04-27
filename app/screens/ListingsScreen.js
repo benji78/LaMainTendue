@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FlatList, StyleSheet } from "react-native";
+import { FlatList, RefreshControl, StyleSheet } from "react-native";
 
 import Card from "../components/Card";
 import colors from "../config/colors";
@@ -29,10 +29,17 @@ function ListingsScreen({ navigation, route }) {
             />
           )
         }
-        refreshing={refreshing}
-        onRefresh={() => {
-          setListings(data.listings);
-        }}
+        refreshControl={
+          <RefreshControl
+            onRefresh={() => {
+              setListings(data.listings);
+            }}
+            refreshing={refreshing}
+            tintColor={colors.black}
+            colors={[colors.black]}
+            progressBackgroundColor={colors.white}
+          />
+        }
       />
     </Screen>
   );

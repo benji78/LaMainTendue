@@ -7,6 +7,7 @@ import CategoryPickerItem from "../components/CategoryPickerItem";
 import { Form, FormField, FormPicker, SubmitButton } from "../components/forms";
 import FormImagePicker from "../components/forms/FormImagePicker";
 import Screen from "../components/Screen";
+import colors from "../config/colors";
 
 const validationSchema = Yup.object().shape({
   images: Yup.array().min(1, "Select at least one photo"),
@@ -81,7 +82,7 @@ const categories = [
 
 function NewListingScreen() {
   return (
-    <Screen>
+    <Screen style={styles.screen}>
       <ScrollView style={styles.container}>
         <Form
           initialValues={{
@@ -128,6 +129,9 @@ function NewListingScreen() {
 }
 
 const styles = StyleSheet.create({
+  screen: {
+    backgroundColor: colors.lightGray,
+  },
   container: {
     padding: 15,
   },

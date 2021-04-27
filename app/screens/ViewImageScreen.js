@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     left: 15,
   },
   container: {
-    backgroundColor: colors.white,
+    backgroundColor: "#000",
   },
   deleteIcon: {
     position: "absolute",
