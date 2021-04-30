@@ -1,10 +1,15 @@
-# LaMainTendue
+<p align="center">
+  <img src="/app/assets/logo-transparent.png" width=20% height=20%/>
+</p>
+<p align="center">
+  <img src="/app/assets/souslogo.png" width=25% height=25%/>
+</p>
 
 ## Le projet
 
 L'objectif de ce projet est de créer une application d'échange de plats et de services entre Isepiens, dans le cadre de la **Junior ISEP Académie**. Cette application est codée en React Native et intègrera un backend utilisant le framework Symfony.
 
-Pour acceder à la page du projet expo : https://expo.io/@benji78/projects/LaMainTendue
+Pour acceder à la page du projet Expo : https://expo.io/@benji78/projects/LaMainTendue
 
 ## Fonctionnalités
 
