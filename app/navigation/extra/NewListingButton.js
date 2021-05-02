@@ -2,14 +2,16 @@ import React from "react";
 import { StyleSheet, TouchableWithoutFeedback, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import colors from "../../config/colors";
+import { useTheme } from "../../theme/ThemeContext";
 
 function NewListingButton({ onPress }) {
+  const { theme } = useTheme();
+
   return (
     <TouchableWithoutFeedback onPress={onPress}>
-      <View style={{ backgroundColor: colors.white }}>
-        <View style={styles.container}>
-          <MaterialCommunityIcons name="plus" size={40} color={colors.white} />
+      <View style={{ backgroundColor: theme.white }}>
+        <View style={[styles.container, { backgroundColor: theme.orange, borderColor: theme.white }]}>
+          <MaterialCommunityIcons name="plus" size={40} color={theme.white} />
         </View>
       </View>
     </TouchableWithoutFeedback>
@@ -18,8 +20,6 @@ function NewListingButton({ onPress }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.orange,
-    borderColor: colors.white,
     borderWidth: 8,
     borderRadius: 40,
     bottom: 18,

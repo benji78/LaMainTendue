@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
 import { Alert, Image, StyleSheet, TouchableWithoutFeedback, View } from "react-native";
-import colors from "../config/colors";
+
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 import { useNavigation } from "@react-navigation/core";
 import ViewImageScreen from "../screens/ViewImageScreen";
+import { useTheme } from "../theme/ThemeContext";
 
 function ImageInput({ imageUri, onChangeImage }) {
   const navigation = useNavigation();
+  const { theme } = useTheme();
 
   useEffect(() => {
     requestPermission();
@@ -45,8 +47,8 @@ function ImageInput({ imageUri, onChangeImage }) {
 
   return (
     <TouchableWithoutFeedback onPress={handlePress}>
-      <View style={styles.container}>
-        {!imageUri && <MaterialCommunityIcons color={colors.mediumGray} name="camera" size={40} />}
+      <View style={[styles.container, { backgroundColor: theme.white }]}>
+        {!imageUri && <MaterialCommunityIcons color={theme.mediumGray} name="camera" size={40} />}
         {imageUri && <Image source={{ uri: imageUri }} style={styles.image} />}
       </View>
     </TouchableWithoutFeedback>
@@ -56,7 +58,6 @@ function ImageInput({ imageUri, onChangeImage }) {
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    backgroundColor: colors.white,
     height: 100,
     borderRadius: 15,
     justifyContent: "center",

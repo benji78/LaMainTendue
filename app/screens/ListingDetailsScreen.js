@@ -3,21 +3,25 @@ import { Image, ScrollView, StyleSheet, TouchableWithoutFeedback, View } from "r
 
 import Text from "../components/Text";
 import ListItem from "../components/lists/ListItem";
-import colors from "../config/colors";
 import Screen from "../components/Screen";
 import routes from "../navigation/routes";
+import { useTheme } from "../theme/ThemeContext";
 
 function ListingDetailsScreen({ navigation, route }) {
   const listing = route.params;
+  const { theme } = useTheme();
+
   return (
-    <Screen style={styles.container}>
-      <ScrollView style={styles.container}>
-        <TouchableWithoutFeedback onPress={() => navigation.navigate(routes.VIEW_IMAGE, listing)}>
-          <Image style={styles.image} source={{ uri: listing.image }} />
-        </TouchableWithoutFeedback>
+    <Screen style={{ backgroundColor: theme.lightGray }}>
+      <TouchableWithoutFeedback onPress={() => navigation.navigate(routes.VIEW_IMAGE, listing)}>
+        <Image style={styles.image} source={{ uri: listing.image }} />
+      </TouchableWithoutFeedback>
+      <ScrollView>
         <View style={styles.detailsContainer}>
-          <Text style={styles.title}>{listing.title}</Text>
-          <Text style={styles.price}>{listing.price === 0 ? "Free" : listing.price + " sols"}</Text>
+          <Text style={[styles.title, { color: theme.green }]}>{listing.title}</Text>
+          <Text style={{ color: theme.darkGray }}>
+            {listing.price === 0 ? "Free" : listing.price + " sols"}
+          </Text>
           {listing.description && <Text style={styles.description}>{listing.description}</Text>}
           <View style={styles.userContainer}>
             <ListItem
@@ -35,9 +39,6 @@ function ListingDetailsScreen({ navigation, route }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.lightGray,
-  },
   detailsContainer: {
     padding: 20,
   },
@@ -49,13 +50,9 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 300,
   },
-  price: {
-    color: colors.darkGray,
-  },
   title: {
     marginBottom: 10,
     fontSize: 24,
-    color: colors.green,
     fontWeight: "bold",
   },
   userContainer: {

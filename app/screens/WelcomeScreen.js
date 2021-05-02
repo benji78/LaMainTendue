@@ -4,15 +4,17 @@ import { ImageBackground, StyleSheet, View, Image, Text, Platform } from "react-
 import useAuth from "../auth/useAuth";
 import Button from "../components/Button";
 import routes from "../navigation/routes";
+import { useTheme } from "../theme/ThemeContext";
 
 function WelcomeScreen({ navigation }) {
   const { logIn } = useAuth();
+  const { dark } = useTheme();
 
   return (
     <ImageBackground
       blurRadius={Platform.OS === "android" ? 2 : 10}
       style={styles.background}
-      source={require("../assets/background.jpg")}
+      source={dark ? require("../assets/background-bed.bmp") : require("../assets/background.jpg")}
     >
       <View style={styles.logoContainer}>
         <Image style={styles.logo} source={require("../assets/logo-transparent.png")} />

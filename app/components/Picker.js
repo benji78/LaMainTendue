@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Button, FlatList, Modal, StyleSheet, TouchableWithoutFeedback, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import defaultStyles from "../config/styles";
 import Text from "./Text";
 import Screen from "./Screen";
 import PickerItem from "./PickerItem";
+import { useTheme } from "../theme/ThemeContext";
 
 function Picker({
   icon,
@@ -18,29 +18,26 @@ function Picker({
   width = "100%",
 }) {
   const [modalVisible, setModalVisible] = useState(false);
+  const { theme } = useTheme();
+
   return (
     <>
       {/* same as <React.Fragment> */}
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-        <View style={[styles.container, { width }]}>
+        <View style={[styles.container, { backgroundColor: theme.white }, { width }]}>
           {icon && (
-            <MaterialCommunityIcons
-              name={icon}
-              size={20}
-              color={defaultStyles.colors.mediumGray}
-              style={styles.icon}
-            />
+            <MaterialCommunityIcons name={icon} size={20} color={theme.mediumGray} style={styles.icon} />
           )}
           {selectedItem ? (
             <Text style={styles.text}>{selectedItem.label}</Text>
           ) : (
-            <Text style={styles.placeholder}>{placeholder}</Text>
+            <Text style={[styles.placeholder, { color: theme.mediumGray }]}>{placeholder}</Text>
           )}
-          <MaterialCommunityIcons name="chevron-down" size={20} color={defaultStyles.colors.mediumGray} />
+          <MaterialCommunityIcons name="chevron-down" size={20} color={theme.mediumGray} />
         </View>
       </TouchableWithoutFeedback>
       <Modal visible={modalVisible} animationType="slide">
-        <Screen style={styles.screen}>
+        <Screen style={{ backgroundColor: theme.lightGray }}>
           <Button title="Close" onPress={() => setModalVisible(false)} />
           <FlatList
             data={items}
@@ -65,7 +62,6 @@ function Picker({
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: defaultStyles.colors.white,
     borderRadius: 25,
     flexDirection: "row",
     padding: 15,
@@ -74,14 +70,10 @@ const styles = StyleSheet.create({
   icon: {
     marginRight: 10,
   },
-  screen: {
-    backgroundColor: defaultStyles.colors.lightGray,
-  },
   text: {
     flex: 1,
   },
   placeholder: {
-    color: defaultStyles.colors.mediumGray,
     flex: 1,
   },
 });

@@ -2,19 +2,20 @@ import React, { useState } from "react";
 import { FlatList, RefreshControl, StyleSheet } from "react-native";
 
 import Card from "../components/Card";
-import colors from "../config/colors";
 import data from "../../data.json";
 import routes from "../navigation/routes";
 import Screen from "../components/Screen";
 import useAuth from "../auth/useAuth";
+import { useTheme } from "../theme/ThemeContext";
 
 function ListingsScreen({ navigation, route }) {
   const [listings, setListings] = useState(data.listings);
   const [refreshing, setRefreshing] = useState(false);
   const { user } = useAuth();
+  const { theme } = useTheme();
 
   return (
-    <Screen style={styles.screen}>
+    <Screen style={{ backgroundColor: theme.lightGray }}>
       <FlatList
         data={listings}
         keyExtractor={(listings) => listings.id.toString()}
@@ -35,9 +36,9 @@ function ListingsScreen({ navigation, route }) {
               setListings(data.listings);
             }}
             refreshing={refreshing}
-            tintColor={colors.black}
-            colors={[colors.black]}
-            progressBackgroundColor={colors.white}
+            tintColor={theme.black}
+            colors={theme.black}
+            progressBackgroundColor={theme.white}
           />
         }
       />
@@ -46,9 +47,6 @@ function ListingsScreen({ navigation, route }) {
 }
 
 const styles = StyleSheet.create({
-  screen: {
-    backgroundColor: colors.lightGray,
-  },
   card: {
     margin: 15,
   },

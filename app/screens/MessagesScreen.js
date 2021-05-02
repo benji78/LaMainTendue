@@ -4,17 +4,18 @@ import { FlatList, RefreshControl, StyleSheet, View } from "react-native";
 import data from "../../data.json";
 import { ListItem, ListItemDeleteAction, ListItemSeparator } from "../components/lists";
 import Screen from "../components/Screen";
-import colors from "../config/colors";
+import { useTheme } from "../theme/ThemeContext";
 
 function MessagesScreen(props) {
   const [messages, setMessages] = useState(data.messages);
   const [refreshing, setRefreshing] = useState(false);
+  const { theme } = useTheme();
 
   const handleDelete = (message) => {
     setMessages(messages.filter((m) => m.id !== message.id));
   };
   return (
-    <Screen style={styles.screen}>
+    <Screen style={{ backgroundColor: theme.lightGray }}>
       <FlatList
         data={messages}
         ItemSeparatorComponent={ListItemSeparator}
@@ -35,9 +36,9 @@ function MessagesScreen(props) {
               setMessages(data.messages);
             }}
             refreshing={refreshing}
-            tintColor={colors.black}
-            colors={[colors.black]}
-            progressBackgroundColor={colors.white}
+            tintColor={theme.black}
+            colors={theme.black}
+            progressBackgroundColor={theme.white}
           />
         }
       />
@@ -48,9 +49,6 @@ function MessagesScreen(props) {
 const styles = StyleSheet.create({
   container: {
     marginVertical: 10,
-  },
-  screen: {
-    backgroundColor: colors.lightGray,
   },
 });
 

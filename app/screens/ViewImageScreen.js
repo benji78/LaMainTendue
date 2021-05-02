@@ -1,21 +1,21 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import colors from "../config/colors";
 import Screen from "../components/Screen";
+import { useTheme } from "../theme/ThemeContext";
 
 function ViewImageScreen({ navigation, route, onDelete }) {
   const listing = route.params;
+  const { theme } = useTheme();
+
   return (
-    <Screen style={styles.container}>
-      <StatusBar style="light" />
+    <Screen style={{ backgroundColor: theme.lightGray }}>
       <View style={{ paddingBottom: 50 }}>
         <View style={styles.closeIcon}>
           <MaterialCommunityIcons
             name="close"
-            color="white"
+            color={theme.black}
             size={35}
             onPress={() => navigation.goBack(null)}
           />
@@ -36,9 +36,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 5,
     left: 15,
-  },
-  container: {
-    backgroundColor: "#000",
   },
   deleteIcon: {
     position: "absolute",

@@ -3,21 +3,17 @@ import { StyleSheet, TextInput as ReactTextInput, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import defaultStyles from "../config/styles";
+import { useTheme } from "../theme/ThemeContext";
 
 function TextInput({ icon, width = "100%", ...otherProps }) {
+  const { theme } = useTheme();
+
   return (
-    <View style={[styles.container, { width }]}>
-      {icon && (
-        <MaterialCommunityIcons
-          name={icon}
-          size={20}
-          color={defaultStyles.colors.mediumGray}
-          style={styles.icon}
-        />
-      )}
+    <View style={[styles.container, { width, backgroundColor: theme.white }]}>
+      {icon && <MaterialCommunityIcons name={icon} size={20} color={theme.mediumGray} style={styles.icon} />}
       <ReactTextInput
-        placeholderTextColor={defaultStyles.colors.mediumGray}
-        style={[defaultStyles.text, styles.text]}
+        placeholderTextColor={theme.mediumGray}
+        style={[defaultStyles.text, { color: theme.darkGray }, styles.text]}
         flex={1}
         {...otherProps}
       />
@@ -27,7 +23,6 @@ function TextInput({ icon, width = "100%", ...otherProps }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: defaultStyles.colors.white,
     borderRadius: 25,
     flexDirection: "row",
     marginVertical: 10,

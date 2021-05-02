@@ -4,7 +4,7 @@ import * as Yup from "yup";
 
 import Screen from "../components/Screen";
 import { Form, FormField, SubmitButton } from "../components/forms";
-import colors from "../config/colors";
+import { useTheme } from "../theme/ThemeContext";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().label("Name"),
@@ -28,8 +28,10 @@ const validationSchema = Yup.object().shape({
 });
 
 function RegisterScreen() {
+  const { theme } = useTheme();
+
   return (
-    <Screen style={styles.container}>
+    <Screen style={[styles.container, { backgroundColor: theme.lightGray }]}>
       <Form
         initialValues={{ name: "", number: "", email: "", password: "" }}
         onSubmit={(values) => console.log(values)}
@@ -73,7 +75,6 @@ function RegisterScreen() {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    backgroundColor: colors.lightGray,
   },
 });
 
