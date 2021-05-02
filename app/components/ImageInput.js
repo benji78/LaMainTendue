@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
-import { Alert, Image, StyleSheet, TouchableWithoutFeedback, View } from "react-native";
+import { Image, StyleSheet, TouchableWithoutFeedback, View } from "react-native";
+import { LogBox } from "react-native"; // If you don't use state persistence or deep link to the screen which accepts functions in params, then the warning doesn't affect you and you can safely ignore it.
+LogBox.ignoreLogs(["Non-serializable values were found in the navigation state"]);
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 import { useNavigation } from "@react-navigation/core";
-import ViewImageScreen from "../screens/ViewImageScreen";
 import { useTheme } from "../theme/ThemeContext";
+import routes from "../navigation/routes";
 
 function ImageInput({ imageUri, onChangeImage }) {
   const navigation = useNavigation();
@@ -25,12 +27,15 @@ function ImageInput({ imageUri, onChangeImage }) {
 
   const handlePress = () => {
     if (!imageUri) selectImage();
-    else
-      Alert.alert("Delete", "Are you sure you want to delete this image?", [
-        { text: "Yes", onPress: () => onChangeImage(null) },
-        { text: "No" },
-      ]);
-    // navigation.navigate(ViewImageScreen);
+    else {
+      // Alert.alert("Delete", "Are you sure you want to delete this image?", [
+      //   { text: "Yes", onPress: () => onChangeImage(null) },
+      //   { text: "No" },
+      // ]);
+      const onDelete = true;
+      navigation.setOptions();
+      navigation.navigate(routes.VIEW_IMAGE, { onChangeImage, onDelete, imageUri });
+    }
   };
 
   const selectImage = async () => {

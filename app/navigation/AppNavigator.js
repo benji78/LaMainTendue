@@ -4,6 +4,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import AccountNavigator from "./AccountNavigator";
 import FeedNavigator from "./FeedNavigator";
+import NewListingNavigator from "./NewListingNavigator";
 import NewListingButton from "./extra/NewListingButton";
 import NewListingScreen from "../screens/NewListingScreen";
 import routes from "./routes";
@@ -27,7 +28,7 @@ const AppNavigator = () => {
       />
       <Tab.Screen
         name={"NewListing"}
-        component={NewListingScreen}
+        component={NewListingNavigator}
         options={({ navigation }) => ({
           tabBarButton: () => <NewListingButton onPress={() => navigation.navigate(routes.NEW_LISTING)} />,
         })}

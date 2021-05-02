@@ -1,10 +1,10 @@
 import React from "react";
 import { Image, ScrollView, StyleSheet, TouchableWithoutFeedback, View } from "react-native";
 
-import Text from "../components/Text";
 import ListItem from "../components/lists/ListItem";
-import Screen from "../components/Screen";
 import routes from "../navigation/routes";
+import Text from "../components/Text";
+import Screen from "../components/Screen";
 import { useTheme } from "../theme/ThemeContext";
 
 function ListingDetailsScreen({ navigation, route }) {
@@ -13,7 +13,7 @@ function ListingDetailsScreen({ navigation, route }) {
 
   return (
     <Screen style={{ backgroundColor: theme.lightGray }}>
-      <TouchableWithoutFeedback onPress={() => navigation.navigate(routes.VIEW_IMAGE, listing)}>
+      <TouchableWithoutFeedback onPress={() => navigation.navigate(routes.VIEW_IMAGE, { listing })}>
         <Image style={styles.image} source={{ uri: listing.image }} />
       </TouchableWithoutFeedback>
       <ScrollView>

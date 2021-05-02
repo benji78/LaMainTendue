@@ -1,13 +1,27 @@
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { Alert, Image, StyleSheet, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import Screen from "../components/Screen";
 import { useTheme } from "../theme/ThemeContext";
 
-function ViewImageScreen({ navigation, route, onDelete }) {
-  const listing = route.params;
+function ViewImageScreen({ navigation, route }) {
+  const onDelete = route.params.onDelete ? route.params.onDelete : false;
+  const image = onDelete ? route.params.imageUri : route.params.listing.image;
+  const onChangeImage = route.params.onChangeImage ? route.params.onChangeImage : null;
   const { theme } = useTheme();
+
+  const handleDelete = () => {
+    Alert.alert("Delete", "Are you sure you want to delete this image?", [
+      {
+        text: "Yes",
+        onPress: () => {
+          onChangeImage(null), navigation.goBack(null);
+        },
+      },
+      { text: "No" },
+    ]);
+  };
 
   return (
     <Screen style={{ backgroundColor: theme.lightGray }}>
@@ -22,11 +36,16 @@ function ViewImageScreen({ navigation, route, onDelete }) {
         </View>
         {onDelete && (
           <View style={styles.deleteIcon}>
-            <MaterialCommunityIcons name="trash-can-outline" color="white" size={35} />
+            <MaterialCommunityIcons
+              name="trash-can-outline"
+              color={theme.black}
+              size={35}
+              onPress={() => handleDelete()}
+            />
           </View>
         )}
       </View>
-      <Image resizeMode="contain" style={styles.image} source={{ uri: listing.image }} />
+      <Image resizeMode="contain" style={styles.image} source={{ uri: image }} />
     </Screen>
   );
 }
