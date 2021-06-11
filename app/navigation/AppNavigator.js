@@ -6,7 +6,6 @@ import AccountNavigator from "./AccountNavigator";
 import FeedNavigator from "./FeedNavigator";
 import NewListingNavigator from "./NewListingNavigator";
 import NewListingButton from "./extra/NewListingButton";
-import NewListingScreen from "../screens/NewListingScreen";
 import routes from "./routes";
 import { useTheme } from "../theme/ThemeContext";
 

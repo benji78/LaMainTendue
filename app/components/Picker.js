@@ -45,7 +45,7 @@ function Picker({
             numColumns={numberOfColumns}
             renderItem={({ item }) => (
               <PickerItemComponent
-                item={item} // object for general things
+                item={item}
                 label={item.label}
                 onPress={() => {
                   setModalVisible(false);
