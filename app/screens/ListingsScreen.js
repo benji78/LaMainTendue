@@ -37,7 +37,7 @@ function ListingsScreen({ navigation, route }) {
             }}
             refreshing={refreshing}
             tintColor={theme.black}
-            colors={theme.black}
+          colors={[theme.black]}
             progressBackgroundColor={theme.white}
           />
         }
