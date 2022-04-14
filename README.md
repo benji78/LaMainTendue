@@ -21,7 +21,9 @@ Pour acceder à la page du projet Expo : https://expo.io/@benji78/projects/LaMai
 ## Essayer l'application
 
 - Installez l'application Expo Go sur votre téléphone IOS depuis l'AppStore ou Android depuis le Google Store
-- Accédez à ce lien depuis le navigateur de votre téléphone Android : exp://exp.host/@benji78/LaMainTendue (Malheureusement à cause de restrictions de la part d'Apple, les utilisateurs IOS doivent être connectés au compte qui a créé l'application pour pouvoir l'exécuter sur Expo Go.)
+- Accédez à ce lien depuis le navigateur de votre téléphone Android : [exp://exp.host/@benji78/LaMainTendue](exp://exp.host/@benji78/LaMainTendue)
+Malheureusement à cause de restrictions de la part d'Apple, les utilisateurs IOS doivent être connectés au compte qui a créé l'application pour pouvoir l'exécuter sur Expo Go.
+Mais vous pouvez toujours utiliser le lien suivant pour essayer l'application sur votre ordinateur : https://appetize.io/embed/8bnmakzrptf1hv9dq7v7bnteem?autoplay=true&device=iphone8plus&params={"EXKernelLaunchUrlDefaultsKey":"exp://exp.host/@benji78/LaMainTendue"}
 
 Alternative:
 - Clonez le repository et ouvrez un invite de commande dans le dossier du projet
@@ -31,8 +33,9 @@ Alternative:
 
 ## Try out the app
 - Install the Expo Go app on your IOS smartphone from the AppStore or on android from the Google Store
-- Go the the folowing link on your smartphone's browser : exp://exp.host/@benji78/LaMainTendue
+- Go the the folowing link on your smartphone's browser : [exp://exp.host/@benji78/LaMainTendue](exp://exp.host/@benji78/LaMainTendue)
 Unfortunately, due to restrictions enforced by Apple, users need to be logged in to the account that authored the app in order to be able to run it on Expo Go.
+However you can still use this link to try the app on your computer: https://appetize.io/embed/8bnmakzrptf1hv9dq7v7bnteem?autoplay=true&device=iphone8plus&params={"EXKernelLaunchUrlDefaultsKey":"exp://exp.host/@benji78/LaMainTendue"}
 
 Alternate:
 - Clone this repository and open a command prompt in the project's folder
